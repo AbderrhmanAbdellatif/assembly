@@ -12,5 +12,13 @@
 	;LSL r1,r0,#7 ; 7 tane kaydirma
 	;MOV r2,#0 ; 
 	;END
-	
+    ;TTL	Ders1
+	;AREA	Program, CODE, READONLY
+	;ENTRY			
+	;LDR r0,=0x80000002
+	;LSLS r1,r0,#1
+	;MOV r2,#0
+    ;stop B stop
+	;END
+
 	
