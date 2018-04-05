@@ -1,0 +1,2 @@
+Dependencies for Project 'yusuf', Target 'Target 1': (DO NOT MODIFY !)
+F (.\mikro.s)(0x5AC65F9D)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 524"--list .\listings\mikro.lst --xref -o .\objects\mikro.o --depend .\objects\mikro.d)

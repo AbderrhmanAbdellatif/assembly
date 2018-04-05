@@ -1,0 +1,40 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;TTL tarif
+    2 00000000         ;AREA program, CODE ,READONLY
+    3 00000000         ;ENTRY
+    4 00000000         ;LDR r0,=0xC0000000 ;1100
+    5 00000000         ;LDR r1,=0x80000000 ;1000
+    6 00000000         ;ADDS r2,r0,r1      ;0100
+    7 00000000         ;END
+    8 00000000                 TTL              Ders1
+    9 00000000                 AREA             Program, CODE, READONLY
+   10 00000000                 ENTRY
+   11 00000000 E3A00005        LDR              r0,=2_101
+   12 00000004 E1A01380        LSL              r1,r0,#7
+   13 00000008 E3A02000        MOV              r2,#0
+   14 0000000C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\mikro.d -o.\objects\mikro.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\C
+MSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 52
+4" --list=.\listings\mikro.lst mikro.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Program 00000000
+
+Symbol: Program
+   Definitions
+      At line 9 in file mikro.s
+   Uses
+      None
+Comment: Program unused
+1 symbol
+333 symbols in table
