@@ -5,7 +5,6 @@
 	;LDR r1,=0x80000000 ;1000
     ;ADDS r2,r0,r1      ;0100
     ;END
-	MOV r2,#0
 	;TTL	Ders1
 	;AREA	Program, CODE, READONLY
 	;ENTRY			
