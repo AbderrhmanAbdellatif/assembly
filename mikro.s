@@ -70,6 +70,34 @@
    ;B niyatwhile
 ;sartyanlis
    ;END
+	   ;TTL ders1
+   ;AREA	Program, CODE, READONLY
+   ;ENTRY
+   ;MOV r1,#4
+   ;MOV r2,#1
+   ;MOV r3,#0
+;baslaknk
+   ;CMP r1,r3
+   ;BEQ biter
+   ;MUL r2,r1,r2
+   ;SUB r1,r1,#1
+   ;B   baslaknk
+;biter   
+   ;END
+      ;TTL ders1
+   ;AREA	Program, CODE, READONLY
+   ;ENTRY
+   ;MOV r1,#4
+   ;MOV r2,#0
+   ;MOV r4,#1
+   ;MOV r5,#2
+;basla   
+   ;CMP r2,r1
+   ;BGT son
+   ;MUL   r4,r5,r4
+   ;ADD   r2,r2,#1
+   ;B basla
+;son
+   ;END
    
-	
 	
