@@ -34,14 +34,15 @@
 	;ADD r1,r1,#1
 	;B loop
 ;cik	
-	LDR r1, =0x00000000	; base adress of byte array
-	MOV r2,#1				;counter
-loop
-	CMP r2,#15
-	BGT	cik
-	STRB r2,[r1],#1			;b[i] = (i+1); 
-	ADD r2,R2,#1			;i++
-	B loop
-cik
+	;LDR r1, =0x00000000	; base adress of byte array
+	;MOV r2,#1				;counter
+;loop
+	;CMP r2,#15
+	;BGT	cik
+	;STRB r2,[r1],#1			;b[i] = (i+1); 
+	;ADD r2,R2,#1			;i++
+	;B loop
+;cik
+
    END 
 	

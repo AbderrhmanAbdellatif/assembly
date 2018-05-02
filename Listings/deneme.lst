@@ -42,17 +42,17 @@ ARM Macro Assembler    Page 1
    34 00000000         ;ADD r1,r1,#1
    35 00000000         ;B loop
    36 00000000         ;cik 
-   37 00000000 E3A01000        LDR              r1, =0x00000000 ; base adress o
-                                                            f byte array
-   38 00000004 E3A02001        MOV              r2,#1       ;counter
-   39 00000008         loop
-   40 00000008 E352000F        CMP              r2,#15
-   41 0000000C CA000002        BGT              cik
-   42 00000010 E4C12001        STRB             r2,[r1],#1  ;b[i] = (i+1); 
-   43 00000014 E2822001        ADD              r2,R2,#1    ;i++
-   44 00000018 EAFFFFFA        B                loop
-   45 0000001C         cik
-   46 0000001C                 END
+   37 00000000         ;LDR r1, =0x00000000 ; base adress of byte array
+   38 00000000         ;MOV r2,#1    ;counter
+   39 00000000         ;loop
+   40 00000000         ;CMP r2,#15
+   41 00000000         ;BGT cik
+   42 00000000         ;STRB r2,[r1],#1   ;b[i] = (i+1); 
+   43 00000000         ;ADD r2,R2,#1   ;i++
+   44 00000000         ;B loop
+   45 00000000         ;cik
+   46 00000000         
+   47 00000000                 END
 Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
 bjects\deneme.d -o.\objects\deneme.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM
 \CMSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 
@@ -71,21 +71,5 @@ Symbol: PROGRAM
    Uses
       None
 Comment: PROGRAM unused
-cik 0000001C
-
-Symbol: cik
-   Definitions
-      At line 45 in file deneme.s
-   Uses
-      At line 41 in file deneme.s
-Comment: cik used once
-loop 00000008
-
-Symbol: loop
-   Definitions
-      At line 39 in file deneme.s
-   Uses
-      At line 44 in file deneme.s
-Comment: loop used once
-3 symbols
-335 symbols in table
+1 symbol
+333 symbols in table
