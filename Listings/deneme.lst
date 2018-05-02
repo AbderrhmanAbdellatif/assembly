@@ -1,0 +1,91 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             PROGRAM, CODE,READONLY
+    2 00000000                 ARM
+    3 00000000                 ENTRY
+    4 00000000         ;MOV r0,#1  ;int i=1
+    5 00000000         ;LDR r1,=0x00001111 ;baslangic adres 
+    6 00000000         ;devam 
+    7 00000000         ;CMP r0,#15 ; i<=15
+    8 00000000         ;BGE cik      
+    9 00000000         ;STRH r0,[r1],#2 ; (short)arrey[i]=i+1
+   10 00000000         ;ADD r0,r0,#1 ;i+1
+   11 00000000         ;B devam ; while (ture)
+   12 00000000         ;cik
+   13 00000000         ;MOV r0,#1
+   14 00000000         ;MOV r4,#0
+   15 00000000         ;LDR r1,=0x00000001
+   16 00000000         ;davem    
+   17 00000000         ;CMP r0,#30 ; ldr saddece ilerime ama yazma  olmuyor
+   18 00000000         ;BGE cik
+   19 00000000         ;; STR r0,[r1],#4
+   20 00000000         ;LDR r3,[r1],#4;buraada 4 dafe ileriyor ama yazmiyor ve 
+                       mantigi soyle r1 ileriyor   arryedeki elmenleri okuyup b
+                       ana geri veriyor 
+   21 00000000         ;;ADD r0,r0,r4 
+   22 00000000         ;ADD r4,r4,r3
+   23 00000000         ;ADD r0,r0,#1 
+   24 00000000         ;B davem
+   25 00000000         ;;cik   
+   26 00000000         ;LDR r0,=0x00001000  ;baseadress
+   27 00000000         ;MOV r1,#1
+   28 00000000         ;MOV r3,#2
+   29 00000000         ;loop 
+   30 00000000         ;CMP r1,#15
+   31 00000000         ;BGE cik
+   32 00000000         ;STR r1,[r0],#4
+   33 00000000         ;MUL r1,r3,r1
+   34 00000000         ;ADD r1,r1,#1
+   35 00000000         ;B loop
+   36 00000000         ;cik 
+   37 00000000 E3A01000        LDR              r1, =0x00000000 ; base adress o
+                                                            f byte array
+   38 00000004 E3A02001        MOV              r2,#1       ;counter
+   39 00000008         loop
+   40 00000008 E352000F        CMP              r2,#15
+   41 0000000C CA000002        BGT              cik
+   42 00000010 E4C12001        STRB             r2,[r1],#1  ;b[i] = (i+1); 
+   43 00000014 E2822001        ADD              r2,R2,#1    ;i++
+   44 00000018 EAFFFFFA        B                loop
+   45 0000001C         cik
+   46 0000001C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\deneme.d -o.\objects\deneme.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM
+\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 
+524" --list=.\listings\deneme.lst deneme.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+PROGRAM 00000000
+
+Symbol: PROGRAM
+   Definitions
+      At line 1 in file deneme.s
+   Uses
+      None
+Comment: PROGRAM unused
+cik 0000001C
+
+Symbol: cik
+   Definitions
+      At line 45 in file deneme.s
+   Uses
+      At line 41 in file deneme.s
+Comment: cik used once
+loop 00000008
+
+Symbol: loop
+   Definitions
+      At line 39 in file deneme.s
+   Uses
+      At line 44 in file deneme.s
+Comment: loop used once
+3 symbols
+335 symbols in table

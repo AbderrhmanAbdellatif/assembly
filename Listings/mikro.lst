@@ -11,30 +11,110 @@ ARM Macro Assembler    Page 1
     5 00000000         ;LDR r1,=0x80000000 ;1000
     6 00000000         ;ADDS r2,r0,r1      ;0100
     7 00000000         ;END
-    8 00000000                 TTL              Ders1
-    9 00000000                 AREA             Program, CODE, READONLY
-   10 00000000                 ENTRY
-   11 00000000 E3A00005        LDR              r0,=2_101
-   12 00000004 E1A01380        LSL              r1,r0,#7
-   13 00000008 E3A02000        MOV              r2,#0
-   14 0000000C                 END
+    8 00000000         ;TTL Ders1
+    9 00000000         ;AREA Program, CODE, READONLY
+   10 00000000         ;ENTRY   
+   11 00000000         ;LDR r0,=2_101 ;saga kaydirma
+   12 00000000         ;LSL r1,r0,#7 ; 7 tane kaydirma
+   13 00000000         ;MOV r2,#0 ; 
+   14 00000000         ;END
+   15 00000000         ;TTL Ders1
+   16 00000000         ;AREA Program, CODE, READONLY
+   17 00000000         ;ENTRY   
+   18 00000000         ;LDR r0,=0x80000002
+   19 00000000         ;LSLS r1,r0,#1
+   20 00000000         ;MOV r2,#0
+   21 00000000         ;stop B stop
+   22 00000000         ;END
+   23 00000000         ;TTL bitopartetor
+   24 00000000         ;AREA Program,CODE,READONLY
+   25 00000000         ;ENTRY   
+   26 00000000         ;LDR r0,=0xD0000000
+   27 00000000         ;LDR r1,=0x50000000
+   28 00000000         ;ADDS r3,r0,r1
+   29 00000000         ;END
+   30 00000000         ;LDR r0,=0X0098FAB0
+   31 00000000         ;MOV r1,#7
+   32 00000000         ;ASRS r3,r0,r1
+   33 00000000         ;END
+   34 00000000         ;;0 x 0 0 0 1 3 1 F 5
+   35 00000000         ;TTL Ders1
+   36 00000000         ;AREA Program, CODE, READONLY
+   37 00000000         ;ENTRY
+   38 00000000         ;LDR r0,=0XC054798A
+   39 00000000         ;MOV r1,#13
+   40 00000000         ;RORS r2,r0,r1
+   41 00000000         ;END
+   42 00000000         ;;0 x 0 0 0 1 3 1 F 5
+   43 00000000         
+   44 00000000         ;Soru 1: N! Hesabi yapan assembly program:
+   45 00000000         ;TTL Ders1
+   46 00000000         ;AREA Program, CODE, READONLY
+   47 00000000         ;ENTRY
+   48 00000000         ;MOV r1,#4  ;n 
+   49 00000000         ;LDR R0,=1  ; r0 = n!
+   50 00000000         ;MOV r2,r1  ;temp
+   51 00000000         ;bas
+   52 00000000         ;CMP r2,#1
+   53 00000000         ;BLO son   ;{
+   54 00000000         ;MUL r0,r2,r0
+   55 00000000         ;SUB r2,r2,#1
+   56 00000000         ;B bas   ;} 
+   57 00000000         ;son
+   58 00000000         ;END
+   59 00000000         ;TTL ders1
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   60 00000000         ;AREA Program, CODE, READONLY
+   61 00000000         ;ENTRY
+   62 00000000         ;MOV r0,#10 ; int n =toplayacagimiz
+   63 00000000         ;LDR R1,=0  ;int toplam=0
+   64 00000000         ;MOV r2,#1   ;int counter
+   65 00000000         ;CMP r2,r0  ;if (counter <= N)
+   66 00000000         ;niyatwhile   
+   67 00000000         ;BGT sartyanlis   ;sart sagliyor
+   68 00000000         ;ADD r1,R1,r2     ; sum  +=conter
+   69 00000000         ;ADD r2,R2,#1     ;counter=counter+1
+   70 00000000         ;B niyatwhile
+   71 00000000         ;sartyanlis
+   72 00000000         ;END
+   73 00000000         ;TTL ders1
+   74 00000000         ;AREA Program, CODE, READONLY
+   75 00000000         ;ENTRY
+   76 00000000         ;MOV r1,#4
+   77 00000000         ;MOV r2,#1
+   78 00000000         ;MOV r3,#0
+   79 00000000         ;baslaknk
+   80 00000000         ;CMP r1,r3
+   81 00000000         ;BEQ biter
+   82 00000000         ;MUL r2,r1,r2
+   83 00000000         ;SUB r1,r1,#1
+   84 00000000         ;B   baslaknk
+   85 00000000         ;biter   
+   86 00000000         ;END
+   87 00000000         ;TTL ders1
+   88 00000000         ;AREA Program, CODE, READONLY
+   89 00000000         ;ENTRY
+   90 00000000         ;MOV r1,#4
+   91 00000000         ;MOV r2,#0
+   92 00000000         ;MOV r4,#1
+   93 00000000         ;MOV r5,#2
+   94 00000000         ;basla   
+   95 00000000         ;CMP r2,r1
+   96 00000000         ;BGT son
+   97 00000000         ;MUL   r4,r5,r4
+   98 00000000         ;ADD   r2,r2,#1
+   99 00000000         ;B basla
+  100 00000000         ;son
+  101 00000000         ;END
+  102 00000000         
+                       
 Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
 bjects\mikro.d -o.\objects\mikro.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\C
 MSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 52
 4" --list=.\listings\mikro.lst mikro.s
-
-
-
-ARM Macro Assembler    Page 1 Alphabetic symbol ordering
-Relocatable symbols
-
-Program 00000000
-
-Symbol: Program
-   Definitions
-      At line 9 in file mikro.s
-   Uses
-      None
-Comment: Program unused
-1 symbol
-333 symbols in table
+332 symbols in table
